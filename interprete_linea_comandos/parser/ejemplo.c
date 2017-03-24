@@ -110,7 +110,7 @@ do{
     			case 7:
     				h= fork();//se crea un hijo
       				if (h==0){
-        				execl("./clr","./clr",NULL);//se ejecuta el ejecutable ls
+        				execl("./pause","./pause",NULL);//se ejecuta el ejecutable ls
         				exit(0);
      				}else{
        					wait(&status);// el padre espera a que el hijo finalice
