@@ -1,22 +1,6 @@
 /*  Neyder Leoncio Daza Cardona
     Maria Isabel Martinez Rendón
-
-
     micd --> chdir,fchdir
-
-
-    strcpy(str2, "mipwd");
-    comparacion=strcmp(str2, items[0]);
-    if(comparacion==0){//si es mipwd
-      int h= fork();//se crea un hijo
-      if (h==0){
-        execl("./pwd","./pwd",NULL);//se ejecuta el ejecutable pwd
-        exit(0);
-     }else{
-       wait(&status);// el padre espera a que el hijo finalice
-     }
-      
-    }
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,7 +9,7 @@
 #include "parser.h"
 
 
-#define TAM 100
+#define TAM 150
 
 int main ()
 {
@@ -83,8 +67,26 @@ do{
      				j=7;
     			break;
     			case 3:
+    				h= fork();//se crea un hijo
+      				if (h==0){
+        				execl("./cd","./cd ",items[1],NULL);//PREGUNTAR
+        				exit(0);
+     				}else{
+       					wait(&status);// el padre espera a que el hijo finalice
+     				}
+     				j=7;
     			break;
     			case 4:
+    				h= fork();//se crea un hijo
+      				if (h==0){
+      					printf("%s\n", items[1]);
+      					printf("%s\n", items[2]);
+        				execl("./cp","./cp",items[1],items[2],NULL);//se ejecuta el ejecutable ls
+        				exit(0);
+     				}else{
+       					wait(&status);// el padre espera a que el hijo finalice
+     				}
+     				j=7;
     			break;
     			case 5:
     			break;
