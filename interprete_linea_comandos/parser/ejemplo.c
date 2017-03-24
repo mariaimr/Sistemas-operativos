@@ -89,6 +89,16 @@ do{
      				j=7;
     			break;
     			case 5:
+    				h= fork();//se crea un hijo
+      				if (h==0){
+      					printf("%s\n", items[1]);
+      					printf("%s\n", items[2]);
+        				execl("./echo","./echo",items[1],items[2],NULL);//se ejecuta el ejecutable ls
+        				exit(0);
+     				}else{
+       					wait(&status);// el padre espera a que el hijo finalice
+     				}
+     				j=7;
     			break;
     			case 6:
     			break;
