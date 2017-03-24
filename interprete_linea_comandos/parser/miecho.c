@@ -20,6 +20,7 @@ int main(int argc, const char *argv[])
     		i = len;
     	}
     }
+    strcat(st,"\n");
     j =length(st);
     write(1,(const char *)st, j);
     return 0;

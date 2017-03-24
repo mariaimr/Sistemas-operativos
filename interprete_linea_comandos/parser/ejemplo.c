@@ -79,8 +79,6 @@ do{
     			case 4:
     				h= fork();//se crea un hijo
       				if (h==0){
-      					printf("%s\n", items[1]);
-      					printf("%s\n", items[2]);
         				execl("./cp","./cp",items[1],items[2],NULL);//se ejecuta el ejecutable ls
         				exit(0);
      				}else{
@@ -91,8 +89,6 @@ do{
     			case 5:
     				h= fork();//se crea un hijo
       				if (h==0){
-      					printf("%s\n", items[1]);
-      					printf("%s\n", items[2]);
         				execl("./echo","./echo",items[1],items[2],NULL);//se ejecuta el ejecutable ls
         				exit(0);
      				}else{
@@ -101,8 +97,25 @@ do{
      				j=7;
     			break;
     			case 6:
+    				h= fork();//se crea un hijo
+      				if (h==0){
+        				execl("./clr","./clr",NULL);//se ejecuta el ejecutable ls
+        				exit(0);
+     				}else{
+       					wait(&status);// el padre espera a que el hijo finalice
+     				}
+     				j=7;
+
     			break;
     			case 7:
+    				h= fork();//se crea un hijo
+      				if (h==0){
+        				execl("./clr","./clr",NULL);//se ejecuta el ejecutable ls
+        				exit(0);
+     				}else{
+       					wait(&status);// el padre espera a que el hijo finalice
+     				}
+     				j=7;
     			break;
     		}
     	}else{
@@ -111,7 +124,6 @@ do{
     		}
     	}
     }
-    printf ("Numero de parametros: %d\n", num);
   }while(ret !=0);// mientras la instruccion sea diferente de miexit 
   return 0;
 }
