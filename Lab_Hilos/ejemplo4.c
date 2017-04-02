@@ -29,14 +29,13 @@ void* calcular_primo(void* arg){
 	while(1){
 		int factor;
 		int es_primo=1;
-			for(factor=2;factor<candidato;++factor)
+		for(factor=2;factor<candidato;++factor)
 		if(candidato % factor==0){
 			es_primo=0;
 			break;
 		}
 		if(es_primo){
-			if(--n==0)
-				return (void*)(intptr_t)candidato;
+			if(--n==0) return (void*)(intptr_t)candidato;
 		}
 		++candidato;
 	}

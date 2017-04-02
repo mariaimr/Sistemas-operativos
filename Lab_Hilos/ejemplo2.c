@@ -31,15 +31,18 @@ int main(){
 
 	//crea un hilo para imprimir 30,000 x
 	hilo1_param.caracter='x';
-	hilo1_param.contador=30000;
-	pthread_create (&id_hilo_1,NULL,&imprimir_caracter,&hilo1_param);
+	hilo1_param.contador=30000; 
+	pthread_create (&id_hilo_1,NULL,&imprimir_caracter,&hilo1_param); //puntero tipo void* --> puntero generico
 
 	//crea un hilo para imprimir 20,000 o
 	hilo2_param.caracter='o';
 	hilo2_param.contador=20000;
 	pthread_create (&id_hilo_2,NULL,&imprimir_caracter,&hilo2_param);
 	//insertar aquí
-	pthread_join (id_hilo_1,NULL);
-	pthread_join (id_hilo_2,NULL);
+	pthread_join (id_hilo_1,NULL); //espera por que termine el hilo 1 (cuando la funcion retorna void*)
+	pthread_join (id_hilo_2,NULL);//espera por que termine el hilo 2
+	/*
+	la funcion retorna *void, el cual es interpretado
+     como el estado de terminado por pthread_join*/
 	return 0;
 }
